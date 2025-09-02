@@ -1,0 +1,88 @@
+:root {
+  --bg: #0b0c10;
+  --panel: #12141a;
+  --text: #e5e7eb;
+  --muted: #9aa1ad;
+  --primary: #4f46e5;
+  --primary-2: #6366f1;
+  --border: #1f2430;
+  --card: #151822;
+  --green: #22c55e;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  background: radial-gradient(80% 60% at 50% 0%, #0b0c10 0%, #05060a 100%);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 0 16px; }
+
+.header {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(18,20,26,0.8);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+.header__inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.logo {
+  font-weight: 800; letter-spacing: 0.5px;
+  background: linear-gradient(90deg, var(--primary), var(--green));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.nav__link { color: var(--muted); text-decoration: none; margin-left: 16px; }
+.nav__link:hover { color: var(--text); }
+
+.app main { padding: 24px 0 40px; }
+
+.searchbar { display: flex; gap: 8px; margin-bottom: 16px; }
+.input {
+  flex: 1;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--text);
+  height: 40px; padding: 0 12px; border-radius: 10px;
+  outline: none;
+}
+.input:focus { border-color: var(--primary-2); box-shadow: 0 0 0 3px rgba(99,102,241,0.15); }
+
+textarea.input { padding: 8px 12px; font-family: inherit; resize: vertical; }
+
+.btn {
+  background: var(--primary);
+  color: white; border: 0; border-radius: 10px;
+  height: 40px; padding: 0 16px; cursor: pointer;
+}
+.btn:hover { background: var(--primary-2); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+.card {
+  background: linear-gradient(180deg, var(--card), #0e1220);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.card__title { margin: 0; font-size: 16px; }
+.card__meta { color: var(--muted); display: flex; gap: 8px; flex-wrap: wrap; }
+.salary { color: #fbbf24; }
+.empty { color: var(--muted); padding: 24px; text-align: center; }
+
+.loading, .error {
+  text-align: center;
+  padding: 24px;
+  color: var(--muted);
+}
+.error { color: #ef4444; }
